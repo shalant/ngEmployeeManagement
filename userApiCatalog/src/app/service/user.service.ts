@@ -12,11 +12,30 @@ export class UserService {
 
   // fetch users
   getUsers(size: number = 10): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/?result=${size}`)
+    return this.http.get<any>(`${this.apiUrl}/?results=${size}`)
   }
 
   // fetch 1 user using the user UUID
   getUser(uuid: number = 1): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/?uuid=${uuid}`)
+  }
+
+  private processResponse(response: Response): Response {
+    return {
+      info: { ...response.info },
+      results: response.results.map((user: any) => (<User>{
+        uuid: string;
+        firstName: string;
+        lastName: string;
+        email: string;
+        username: string;
+        gender: string;
+        address: string;
+        dateOfBirth: string;
+        phone: string;
+        imageUrl: string;
+        coordinate: Coordinate;
+      })
+    };
   }
 }
