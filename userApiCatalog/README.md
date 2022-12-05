@@ -1,3 +1,5 @@
+# tutorial using https://www.youtube.com/watch?v=05mhsj4XPso, got a bug and stopped around 1:44:44
+
 # UserApiCatalog
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
